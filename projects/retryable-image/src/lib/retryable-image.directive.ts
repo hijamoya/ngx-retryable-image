@@ -1,4 +1,5 @@
-import { Directive, EventEmitter, HostListener, Input, OnDestroy, Output } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Inject, Input, OnDestroy, Output } from '@angular/core';
+import { RetryConfig } from './retry-config';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -8,14 +9,14 @@ export class RetryableImageDirective implements OnDestroy {
 
   @Output() readonly whenRetry = new EventEmitter<number>();
 
-  @Input() retryCount = 1;
-  @Input() retryDelay = 50;
+  @Input() retryCount = this.config.retryCount;
+  @Input() retryDelay = this.config.retryDelay;
 
   private count = 0;
   private interval = 0;
   private retrying = false;
 
-  constructor() {
+  constructor(private config: RetryConfig) {
   }
 
   ngOnDestroy(): void {

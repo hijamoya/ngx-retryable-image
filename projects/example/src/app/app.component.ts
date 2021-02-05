@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  readonly retryCount = 3;
-  readonly retryDelay = 1000;
   readonly errorSrc = 'https://angular.io/assets/wrong/image/path/angular.svg';
   readonly correctSrc = 'https://angular.io/assets/images/logos/angular/angular.svg';
 

@@ -12,9 +12,10 @@ import { RetryableImageModule } from '../../../retryable-image/src/lib/retryable
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RetryableImageModule
+    RetryableImageModule.forRoot({ retryDelay: 100, retryCount: 2 })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

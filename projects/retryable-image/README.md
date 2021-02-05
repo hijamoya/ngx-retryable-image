@@ -22,9 +22,17 @@ Just add the `retryImage` directive to your image tag:
 
 # Custom settings
 
-1. `retryCount`: defines the max number of attempts to retry.
-2. `retryDelay`: defines the delay between each retry.
+1. `retryCount`: defines the max number of attempts to retry, default is 1.
+2. `retryDelay`: defines the delay between each retry, default is 50ms.
 3. `whenRetry`: emits when the retry happened, it also provides the current retry count.
+
+# Global settings
+
+You can use `RetryableImageModule.forRoot` to define global settings:
+
+```typescript
+RetryableImageModule.forRoot({ retryDelay: 100, retryCount: 2 })
+```
 
 # Publish
 
