@@ -28,6 +28,7 @@ export class RetryableImageDirective implements OnDestroy {
       return;
     }
     const src = e.target.src;
+    e.target.src = '';
     this.count++;
     this.interval = setTimeout(() => {
       e.target.src = src;
