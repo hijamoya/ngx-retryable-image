@@ -26,6 +26,12 @@ Just add the `retryImage` directive to your image tag:
 2. `retryDelay`: defines the delay between each retry.
 3. `whenRetry`: emits when the retry happened, it also provides the current retry count.
 
+# Publish
+
+```angular2html
+ng build retryable-image --prod
+npm publish dist/retryable-image
+```
 
 License
 -----

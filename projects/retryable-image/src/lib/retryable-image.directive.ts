@@ -13,6 +13,7 @@ export class RetryableImageDirective implements OnDestroy {
 
   private count = 0;
   private interval = 0;
+  private retrying = false;
 
   constructor() {
   }
@@ -24,15 +25,17 @@ export class RetryableImageDirective implements OnDestroy {
   }
 
   @HostListener('error', ['$event']) onError(e: any): any {
-    if (this.count === this.retryCount) {
+    if (this.retrying || this.count >= this.retryCount) {
       return;
     }
+    this.retrying = true;
+    this.count++;
     const src = e.target.src;
     e.target.src = '';
-    this.count++;
     this.interval = setTimeout(() => {
       e.target.src = src;
       this.whenRetry.emit(this.count);
+      this.retrying = false;
     }, this.retryDelay);
   }
 
