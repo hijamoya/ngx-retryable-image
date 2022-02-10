@@ -1,6 +1,6 @@
 {
   "name": "ngx-retryable-image",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "dependencies": {
     "tslib": "^2.0.0"
   },
