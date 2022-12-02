@@ -8,7 +8,7 @@ ngx-retryable-image is an Angular `Directive` to help traditional `img` tag to r
 npm install ngx-retryable-image
 ```
 
-# Useage
+# Usage
 
 Just add the `retryImage` directive to your image tag:
 ```angular2html
